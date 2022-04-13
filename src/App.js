@@ -21,35 +21,6 @@ export const WeatherIcons = {
   "11n": "./Icons/storm.svg",
 };
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 380px;
-  padding: 20px 10px;
-  margin: auto;
-  border-radius: 4px;
-  box-shadow: 0 3px 6px 0 #555;
-  background:lavender;
-  font-family: Montserrat;
-  margin-top:30px;
-  
-`;
-
-const AppLabel = styled.span`
-  color: black;
-  margin: 20px auto;
-  font-size: 18px;
-  font-weight: bold;
-`;
-const CloseButton = styled.span`
-  padding: 2px 3px;
-  background-color: black;
-  border-radius: 50%;
-  color: white;
-  position: absolute;
-`;
-
 function App() {
   const [city, updateCity] = useState();
   const [weather, updateWeather] = useState();
@@ -57,8 +28,6 @@ function App() {
     e.preventDefault();
     const response = await Axios.get(
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=17731b7a23b8ba7df8b9080f4bc1968b`,
-
-
 
     );
     updateWeather(response.data);
@@ -74,5 +43,29 @@ function App() {
     </Container>
   );
 }
+
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 380px;
+  padding: 20px 10px;
+  margin: auto;
+  border-radius: 4px;
+  box-shadow: 0 3px 6px 0 #555;
+  background:lavender;
+  font-family: Montserrat;
+  margin-top:30px;
+  
+`;
+
+
+const AppLabel = styled.span`
+  color: black;
+  margin: 20px auto;
+  font-size: 18px;
+  font-weight: bold;
+`;
 
 export default App;
